@@ -12,9 +12,9 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className="bg-gray-100 p-6">
       
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="flex flex-col justify-items-center gap-6 p-6 ">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

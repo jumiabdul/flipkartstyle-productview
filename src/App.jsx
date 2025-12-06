@@ -3,24 +3,24 @@ import Navbar from "./Navbar";
 import ProductView from "./ProductView";
 import ProductList from "./ProductList";
 import Footer from "./Footer";
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Home from "./Home";
 import './App.css'
 
 function App() {
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/1")
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, []);
-
+  
   return (
+    <BrowserRouter>
     <div className="bg-gray-100 min-h-scrn">
       <Navbar />
-            <ProductList />
-      <ProductView product={product} />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/products" element={<ProductList/>} />
+        <Route path="/products/:id" element={<ProductView/>} />            
+      </Routes>
       <Footer/>
     </div>
+    </BrowserRouter>
   );
 }
 
